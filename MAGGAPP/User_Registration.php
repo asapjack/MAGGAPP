@@ -2,6 +2,7 @@
 
 // Importing DBConfig.php file.
 include 'DBConfig.php';
+error_reporting(-1);
 
 // Creating connection.
  $con = mysqli_connect($HostName,$HostUser,$HostPass,$DatabaseName);
@@ -58,8 +59,10 @@ $json = json_encode($MSG);
 
  }
  else{
+$MSG = 'Try again.' ;
+$json = json_encode($MSG);
 
- echo 'Try Again';
+ echo $json;
 
  }
  }
