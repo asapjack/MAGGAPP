@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { StyleSheet, TextInput, View, Alert, Button, Text} from 'react-native';
+import { StyleSheet, TextInput, View, Alert, Button, Text, Image, AppRegistry} from 'react-native';
 
 // Importing Stack Navigator library to add multiple activities.
 import { StackNavigator } from 'react-navigation';
@@ -71,13 +71,15 @@ fetch('http://localhost:19000/User_Login.php', {
         console.error(error);
       });
 
-
   }
 
   render() {
     return (
 
 <View style={styles.MainContainer}>
+
+        <ImageBackground style={{width: 800, height: 800}} source={require('https://wallpaperbrowse.com/media/images/soap-bubble-1958650_960_720.jpg')}/>
+        </ImageBackground>
 
         <Text style= {styles.TextComponentStyle}>User Login Form</Text>
 
@@ -112,13 +114,13 @@ fetch('http://localhost:19000/User_Login.php', {
         <Button title="Click Here To Login" onPress={this.UserLoginFunction} color="#2196F3" />
         <Button title="Click Here To Register" onPress={this.UserRegisterFunction} color="#2196F3" />
 
-
-
 </View>
 
     );
   }
 }
+
+AppRegistry.registerComponent('LoginActivity', () => LoginActivity);
 
 // Creating Profile activity.
 class ProfileActivity extends Component
@@ -130,7 +132,6 @@ class ProfileActivity extends Component
       title: 'Profile',
 
    };
-
 
    render()
    {
@@ -148,7 +149,6 @@ class ProfileActivity extends Component
       );
    }
 }
-
 
 class Registration extends Component {
 
@@ -179,8 +179,6 @@ constructor(props) {
  const { UserEmail }  = this.state ;
  const { UserPassword }  = this.state ;
 
-
-
 fetch('http://localhost:19002/User_Registration.php', {
   method: 'POST',
   headers: {
@@ -207,7 +205,6 @@ fetch('http://localhost:19002/User_Registration.php', {
       }).catch((error) => {
         console.error(error);
       });
-
 
   }
 
